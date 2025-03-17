@@ -73,7 +73,7 @@ const Register = () => {
       </div>
 
 
-      <Login />
+      {/* <Login /> */}
 
     </div>
     </div>
