@@ -1,18 +1,35 @@
 import "./login.css"
 import { useState } from "react";
+import {useFormStatus} from "react-dom"
+import axios from "axios";
+
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending}>
+      { pending? "Signing in..." : "Sign In"}
+    </button>
+  );
+}
 
 function Login() {
   const [isActive, setIsActive] = useState(false);
+  const {pending} = useFormStatus();
 
-  const handleClick = (event) => {
-    if (event.target.id === "register") {
-      setIsActive(true);
+const onSubmit = async (formData) => {
+  const response = axios.post("http://localhost:3000/api/v1/user/login", formData)
+  console.log(response);
+}
+
+  // const handleClick = (event) => {
+  //   if (event.target.id === "register") {
+  //     setIsActive(true);
       
-    } else if (event.target.id === "login") {
-      setIsActive(false);
+  //   } else if (event.target.id === "login") {
+  //     setIsActive(false);
       
-    }
-  };
+  //   }
+  // };
 
   return (
     <>
@@ -22,7 +39,7 @@ function Login() {
 
           <div className="form-container sign-in">
 
-            <form>
+            <form action={onSubmit}>
               <h1>Sign In</h1>
               <div className="social-icons">
                 <a href="#" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
@@ -31,10 +48,10 @@ function Login() {
                 <a href="#" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
               </div>
               <span>or use your email password</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
+              <input type="email" placeholder="Email" name="email" />
+              <input type="password" placeholder="Password" name="password"/>
               <a href="#">Forget Your Password?</a>
-              <button onClick={handleClick}>Sign In</button>
+             <Submit />
             </form>
           </div>
           <div className="toggle-container">

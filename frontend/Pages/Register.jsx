@@ -1,12 +1,22 @@
 import Login from "./Login"
 import axios from "axios";
 import "./login.css"
-const Register = () => {
+import {useFormStatus} from "react-dom"
 
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending}>
+      { pending? "Signing in..." : "Sign In"}
+    </button>
+  );
+}
+const Register = () => {
     const onSubmit = async (formData) => {
-        console.log(formData)
         const data = await axios.post("http://localhost:3000/api/v1/user/register", formData);
+        console.log(data);
     }
+
 
   return (
     <div>
@@ -33,15 +43,15 @@ const Register = () => {
               <div className="radio-student">
 
               <label htmlFor="student">Student</label>
-              <input type="radio" id="student" placeholder="Student" name="role" />
+              <input type="radio" id="student" placeholder="Student" value="student" name="role" />
               </div>
               <div className="radio-recruiter">
 
               <label htmlFor="recruiter">Recruiter</label>
-              <input type="radio" id="recruiter" placeholder="Recruiter" name="role" />
+              <input type="radio" id="recruiter" placeholder="Recruiter" value="recruiter" name="role" />
               </div>
               </div>
-              <button >Sign Up</button>
+              <Submit />
             </form>
           </div>
 
@@ -56,16 +66,16 @@ const Register = () => {
               Already a user?
               <h1>Welcome Back!</h1>
               <p>Enter your personal details to use all of site features</p>
-                <button className="hidden" type="submit" id="register">Sign In</button>
-              </div>
+              <button className="hidden" type="submit" id="register">Sign In</button>
             </div>
           </div>
         </div>
       </div>
 
 
-      {/* <Login /> */}
+      <Login />
 
+    </div>
     </div>
   )
 }
