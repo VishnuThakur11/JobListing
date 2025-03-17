@@ -1,0 +1,52 @@
+
+#cards{
+    height: 280px;
+    width: 220px;
+    border: 1px solid rgba(201, 201, 201, 0.823);
+    /* margin-left: 20px; */
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.356);
+    display: grid;
+    gap: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#logo{
+    height: 100%;
+    width: 100%;
+}
+#comp-logo{
+    
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 80px;
+    margin-left: 50px;
+}
+#comp-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: .01px solid rgba(97, 94, 94, 0.128);
+    font-weight: bold;
+    box-shadow: thistle;
+}
+#comp-des{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+button{
+    background-color: rgba(107, 222, 240, 0.334);
+    font-family: Satoshi,"Satoshi Fallback";
+    height: 35px;
+    width: 95px;
+    border: .5px solid rgb(0, 115, 255);
+    color: rgb(25, 0, 255);  
+    border-radius: 16px;
+    background-color: white;
+}

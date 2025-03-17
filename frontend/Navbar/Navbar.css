@@ -1,0 +1,106 @@
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none; 
+    background-color: white;
+    /* -webkit-box-shadow: 6px 18px 28px -8px rgba(192, 185, 185, 0.18);
+    -moz-box-shadow: 6px 18px 28px -8px rgba(0, 0, 0, 0.18);
+    box-shadow: 6px 18px 28px -8px rgba(0, 0, 0, 0.18); */
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 72px;
+    font-size: 16px;
+    gap: 40px;
+    color: #474D68;
+   
+    
+}
+
+.nav-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: none;
+}
+.btn1{
+    height: 35px;
+    width: 75px;
+    border: .5px solid red;
+    color: red;  
+    border-radius: 10px;
+    background-color: white;
+}
+.btn1:hover{
+    height: 35px;
+    width: 75px;
+    border: .5px solid red;
+    color: red ;
+    border-radius: 10px;
+    background-color: rgb(236, 232, 232);
+}
+.btn2{
+    height: 35px;
+    width: 85px;
+    border: none; 
+    border-radius: 10px;
+    background-color: orange;
+    color: white;
+}
+.btn2:hover{
+    height: 35px;
+    width: 85px;
+    border: none; 
+    border-radius: 10px;
+    background-color: rgb(245, 188, 81);
+    color: white;
+}
+.active{
+   
+    color: rgb(107, 103, 103);
+    text-decoration: red;
+    border-radius: 5px;
+    
+}
+
+.Home{
+    text-decoration: none;
+}
+.jobs{
+    text-decoration: none;
+}
+.services{
+    text-decoration: none;
+}
+.nav-buttons{
+    /* border: 1px solid black; */
+    text-decoration: none;
+    width: 80px;
+    height: 25px;
+    /* background-color: whitesmoke; */
+    border-radius: 8px;
+    
+}
+#logo{
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+#login{
+    text-decoration: none;
+}
+#login:hover{
+    text-decoration: none;
+    border-radius: 5px;
+}
+#signup{
+    text-decoration: none;
+}
