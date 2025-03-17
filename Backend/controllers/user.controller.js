@@ -103,7 +103,7 @@ export const login = async (req, res) => {
             profile: user.profile
         }
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true }).json({
             message: `Welcome back ${user.fullname}`,
             user,
             success: true
@@ -114,7 +114,12 @@ export const login = async (req, res) => {
 }
 export const logout = async (req, res) => {
     try {
-        return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+
+        res.cookie("token", "", { 
+            httpOnly: true,  
+            maxAge: 0
+           });
+        return res.status(200).json({
             message: "Logged out successfully.",
             success: true
         })
@@ -178,5 +183,27 @@ export const updateProfile = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const userProfile = async (req, res) => {
+    try {
+        const token = req.cookies.token; // Get the token from the cookies
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        // Verify token and get user ID
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        const user = await User.findById(decoded.userId); // Get user data
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        return res.status(200).json({ user });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ message: 'Server error' });
     }
 }
