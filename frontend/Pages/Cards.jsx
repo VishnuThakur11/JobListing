@@ -25,7 +25,7 @@ const Cards = (props) => {
           </div>
           <div>
             <center>
-              <Link to="/view-jobs"><button>View Jobs</button></Link>
+              <Link to="jobs"><button>View Jobs</button></Link>
             </center>
 
           </div>

@@ -1,6 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); */
 
-.login-body{
+.login-body{ 
     /* background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff); */
     background: #FFEFBA;
@@ -8,7 +8,6 @@
     background: linear-gradient(to right, #FFFFFF, #FFEFBA);
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     margin-top: 10vh;
     flex-direction: column;
     height: 100vh;
@@ -27,18 +26,18 @@
 }
 
 .container p{
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.3px;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    letter-spacing: 0.3px !important;
     margin: 20px 0;
 }
 
 .container span{
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 .container a{
-    color: #333;
+    color: #333 !important;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;

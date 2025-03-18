@@ -1,8 +1,9 @@
 import "./login.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {useFormStatus} from "react-dom"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { User } from "../../Backend/models/user.model";
 
 function Submit() {
   const { pending } = useFormStatus();
@@ -13,6 +14,7 @@ function Submit() {
   );
 }
 
+
 function Login() {
   const [isActive, setIsActive] = useState(false);
 
@@ -20,10 +22,15 @@ function Login() {
   const navigate = useNavigate();
 const onSubmit = async (formData) => {
   const response = axios.post("http://localhost:3000/api/v1/user/login", formData, {withCredentials: true})
+  console.log(Boolean(response.status))
   if(response){
+    console.log(response)
     navigate("/")
   }
+  
+  
 }
+
 
   // const handleClick = (event) => {
   //   if (event.target.id === "register") {

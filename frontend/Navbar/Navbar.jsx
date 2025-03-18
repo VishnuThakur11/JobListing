@@ -7,6 +7,7 @@ import Jobs from "../Pages/Jobs";
 import Services from "../Pages/Services";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Profile from '../Pages/Profile';
 
 function Navbar() {
     const [user, setUser] = useState(null); 
@@ -29,7 +30,11 @@ function Navbar() {
         fetchUserProfile();
     }, []);
 
-
+useEffect(
+    ()=>{
+        <Navbar />
+    },[<Login />]
+);
     // Handle Logout
     const handleLogout = () => {
         axios.get('http://localhost:3000/api/v1/user/logout', { withCredentials: true })
@@ -53,12 +58,12 @@ function Navbar() {
                 </div>
                 <div className="nav-buttons">
                     {loading ? (
-                        <button className="btn1" disabled>Loading...</button>
+                        <button className="logout" disabled>Loading...</button>
                     ) : user ? (
                         <>
                             <span>{user.fullname}</span> {/* Show user’s full name */}
-                            <img className='userProfile' src={user.profile.profilePhoto}/>
-                            <button className="btn1" onClick={handleLogout}>Logout</button> {/* Logout Button */}
+                            <Link to="/profile"><img className='userProfile' src={user.profile.profilePhoto}/></Link>
+                            <button className="logout" onClick={handleLogout}>Logout</button> {/* Logout Button */}
                         </>
                     ) : (
                         <>
@@ -79,6 +84,8 @@ function Navbar() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/profile" element={<Profile />} />
+
             </Routes>
         </BrowserRouter>
     );
